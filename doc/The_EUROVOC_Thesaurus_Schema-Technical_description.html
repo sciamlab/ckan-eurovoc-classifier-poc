@@ -1,0 +1,848 @@
+
+<!-- saved from url=(0082)http://lists.w3.org/Archives/Public/public-esw-thes/2010Feb/att-0023/Ontology.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>The EUROVOC Thesaurus Schema - Technical description</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.Normal, li.Normal, div.Normal
+	{margin-top:0mm;
+	margin-right:5mm;
+	margin-bottom:.0001pt;
+	margin-left:5mm;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-top:12.0pt;
+	margin-right:5mm;
+	margin-bottom:3.0pt;
+	margin-left:5mm;
+	line-height:12.0pt;
+	page-break-before:always;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;}
+h2
+	{margin-top:12.0pt;
+	margin-right:5mm;
+	margin-bottom:3.0pt;
+	margin-left:5mm;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;}
+h3
+	{margin-top:12.0pt;
+	margin-right:5mm;
+	margin-bottom:3.0pt;
+	margin-left:5mm;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;}
+h4
+	{margin-top:12.0pt;
+	margin-right:5mm;
+	margin-bottom:3.0pt;
+	margin-left:5mm;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+h5
+	{margin-top:12.0pt;
+	margin-right:5mm;
+	margin-bottom:3.0pt;
+	margin-left:5mm;
+	font-size:13.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.Title, li.Title, div.Title
+	{margin-top:18.0pt;
+	margin-right:5mm;
+	margin-bottom:3.0pt;
+	margin-left:5mm;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.Subtitle, li.Subtitle, div.Subtitle
+	{margin-top:6mm;
+	margin-right:10mm;
+	margin-bottom:3.0pt;
+	margin-left:10mm;
+	text-align:center;
+	font-size:12.0pt;
+	font-family:Arial;}
+a:link, span.Hyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.HyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+@page Section1
+	{size:210.0mm 842.0pt;
+	margin:70.9pt 20.0mm 70.9pt 20.0mm;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0mm;}
+ul
+	{margin-bottom:0mm;}
+-->
+</style>
+
+</head>
+
+<body lang="en" link="blue" vlink="purple">
+
+<div class="Section1">
+
+<p class="Title"><span>The EUROVOC Thesaurus Ontology Schema</span></p>
+
+<p class="Subtitle"><span>Technical Description and Usage
+Conventions</span></p>
+
+<p class="Normal"><span>Date: 2009-10-26</span></p>
+
+<p class="Normal"><span>Owner: </span></p>
+
+<p class="Normal"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+the Publications Office of the European Union (<a href="http://publications.europa.eu/">http://publications.europa.eu/</a>),
+</span></p>
+<p class="Normal"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2009 The Publications Office of the European Union</span><br>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Originating departments — Copyright</span><br>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2, rue Mercier</span><br>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L-2985 Luxembourg</span><br><br>
+</p>
+
+<p class="Normal"><span>Authors:</span></p>
+
+<p class="Normal"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Johan De Smedt (<a href="http://www.tenforce.com/">http://www.tenforce.com</a>),
+</span></p>
+
+<p class="Normal"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bernard Vatant (<a href="http://www.mondeca.com/">http://www.mondeca.com</a>)</span></p>
+
+<h1><span>1.</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>The EUROVOC Thesaurus</span></h1>
+
+<p class="Normal"><span>The mission and use of the thesaurus is documented in <a href="http://lists.w3.org/Archives/Public/public-esw-thes/2010Feb/att-0023/en-p3-20.pdf">English</a> and in <span class="Hyperlink"><a href="http://lists.w3.org/Archives/Public/public-esw-thes/2010Feb/att-0023/fr-p3-20.pdf">French</a></span>.</span></p>
+
+<p class="Normal"><span>The thesaurus is maintained by the OPOCE and is available via its <span class="Hyperlink"><a href="http://eurovoc.europa.eu/">portal</a></span>.</span></p>
+
+<p class="Normal"><span>A schema specific documentation was generated using OWLDoc via Protege 4.&nbsp; It is available via <span class="Hyperlink"><a href="http://lists.w3.org/Archives/Public/public-esw-thes/2010Feb/att-0023/index.html">EUROVOC OWLDoc</a></span>.</span></p>
+
+<h2><span>1.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Namespace and Identification</span></h2>
+
+<p class="Normal"><span>Namespace: <a href="http://eurovoc.europa.eu/schema">http://eurovoc.europa.eu/schema#</a>.</span></p>
+
+<p class="Normal"><span>The ontology and this description are available from <span class="Hyperlink"><a href="http://eurovoc.europa.eu/ontology/">http://eurovoc.europa.eu/ontology/</a></span>.</span></p>
+
+<p class="Normal"><span>&nbsp;</span></p>
+
+<p class="Normal"><span>Reading</span><span> convention:
+the following namespace abbreviations are used in this document:</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>annotation=http://tenforce.com/base-ontology/annotation#</span></li>
+ <li class="Normal"><span>dc=<a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a></span></li>
+ <li class="Normal"><span>dcam=<a href="http://purl.org/dc/dcam/">http://purl.org/dc/dcam/</a></span></li>
+ <li class="Normal"><span>dcterms=<a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a></span></li>
+ <li class="Normal"><span>eu=<a href="http://eurovoc.europa.eu/schema">http://eurovoc.europa.eu/schema#</a></span></li>
+ <li class="Normal"><span>owl=<a href="http://www.w3.org/2002/07/owl">http://www.w3.org/2002/07/owl#</a></span></li>
+ <li class="Normal"><span>rdf=<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></span></li>
+ <li class="Normal"><span>rdfs=<a href="http://www.w3.org/2000/01/rdf-schema">http://www.w3.org/2000/01/rdf-schema#</a></span></li>
+ <li class="Normal"><span>skos=<a href="http://www.w3.org/2004/02/skos/core">http://www.w3.org/2004/02/skos/core#</a></span></li>
+ <li class="Normal"><span>xl=<a href="http://www.w3.org/2008/05/skos-xl">http://www.w3.org/2008/05/skos-xl#</a></span></li>
+ <li class="Normal"><span>xsd=<a href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema#</a></span></li>
+ <li class="Normal"><span>xml= <a href="http://www.w3.org/XML/1998/namespace">http://www.w3.org/XML/1998/namespace</a></span></li>
+ <li class="Normal"><span>xhtml=<a href="http://www.w3.org/1999/xhtml">http://www.w3.org/1999/xhtml</a></span></li>
+</ul>
+
+<h2><span>1.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Outline of the Modelling Approach.</span></h2>
+
+<p class="Normal"><span>The EUROVOC ontology schema is an extension of:</span></p>
+
+<p class="Normal"><span>- SKOS Simple Knowledge Organization System</span></p>
+
+<p class="Normal"><span>&nbsp;&nbsp;&nbsp;Reference</span></p>
+
+<p class="Normal"><span>&nbsp;&nbsp;&nbsp;W3C Proposed Recommendation 15 June 2009</span></p>
+
+<p class="Normal"><span>Including: Appendix B. SKOS eXtension for Labels (SKOS-XL)</span></p>
+
+<p class="Normal"><span><br>The imported schemas are:</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span><a href="http://www.w3.org/2004/02/skos/core">http://www.w3.org/2004/02/skos/core#</a>
+     (downloadable via the http protocol, accepting RDF, or via <a href="http://www.w3.org/TR/skos-reference/skos.rdf">http://www.w3.org/TR/skos-reference/skos.rdf</a>)</span></li>
+ <li class="Normal"><span><a href="http://www.w3.org/2008/05/skos-xl">http://www.w3.org/2008/05/skos-xl#</a>
+     (downloadable via the http protocol, accepting RDF, or via <a href="http://www.w3.org/TR/skos-reference/skos-xl.rdf">http://www.w3.org/TR/skos-reference/skos-xl.rdf</a>)</span></li>
+</ul>
+
+<p class="Normal"><span><br>For technical documentation on SKOS please see <a href="http://www.w3.org/TR/skos-reference/">the SKOS reference</a> and <a href="http://www.w3.org/TR/skos-primer/">the SKOS Primer</a>.</span></p>
+
+<h3><span>1.2.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Used
+SKOS Entities</span></h3>
+
+<p class="Normal">The SKOS classes and properties listed at the end of this section are used when publishing the EUROVOC thesaurus.<br>
+SKOS inference may be applied (e.g. to calculate inverse properties).  The specification and semantics of these classes and properties are available in <a href="http://www.w3.org/TR/skos-reference/">the SKOS reference</a> and <a href="http://www.w3.org/TR/skos-primer/">the SKOS Primer</a>.<br>
+<i>Note</i>: Most of these classes and properties are specialized with EUROVOC specific extensions.</p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span><tt>skos:ConceptScheme</tt></span></li>
+ <li class="Normal"><span><tt>skos:Concept</tt></span></li>
+ <li class="Normal"><span><tt>skos:inScheme</tt></span></li>
+ <li class="Normal"><span><tt>skos:hasTopConcept</tt></span></li>
+ <li class="Normal"><span><tt>skos:topConceptOf</tt></span></li>
+ <li class="Normal"><span><tt>skos:broader</tt></span></li>
+ <li class="Normal"><span><tt>skos:related</tt></span></li>
+ <li class="Normal"><span><tt>skos:prefLabel</tt></span></li>
+ <li class="Normal"><span><tt>xl:prefLabel</tt></span></li>
+ <li class="Normal"><span><tt>skos:altLabel</tt></span></li>
+ <li class="Normal"><span><tt>xl:altLabel</tt></span></li>
+ <li class="Normal"><span><tt>skos:hiddenLabel</tt></span></li>
+ <li class="Normal"><span><tt>xl:Label</tt></span></li>
+ <li class="Normal"><span><tt>xl:literalForm</tt></span></li>
+ <li class="Normal"><span><tt>xl:labelRelation</tt></span></li>
+ <li class="Normal"><span><tt>skos:definition</tt></span></li>
+ <li class="Normal"><span><tt>skos:example</tt></span></li>
+ <li class="Normal"><span><tt>skos:historyNote</tt></span></li>
+ <li class="Normal"><span><tt>skos:scopeNote</tt></span></li>
+</ul>
+
+<h3><span>1.2.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Used
+Schema Annotations</span></h3>
+
+<p class="Normal"><span>Some Dublin Core properties are reused and re-declared without importing the complete DCMI RDF schemes.</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span><tt>dc:date</tt></span></li>
+ <li class="Normal"><span><tt>dc:identifier</tt></span></li>
+</ul>
+
+<p class="Normal"><span><br>EUROVOC extensions define artefacts that either are specified
+as top level classes and properties or as sub-classes and sub-properties of the SKOS and SKOS-XL
+artefacts.</span></p>
+
+<p class="Normal"><span>When possible, EUROVOC specific
+extensions will entail SKOS artefacts.&nbsp; The specifications of these 
+inference rules are detailed using a EUROVOC schema annotation property:</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span><tt>eu:importRule</tt><br>
+     Details the business rules applied on the EUROVOC RDF representation to
+     derive SKOS properties or class instances from EUROVOC specific properties
+     and class instances.<br.><i>Note</i>: in the published EUROVOC 
+     RDF data all these rules have been applied.  Hence, this downloadable version is ready for regular
+     SPARQL services.</br.></span></li>
+</ul>
+
+<p class="Normal"><span><br>The range of some EUROVOC properties is an XML literal value.  
+For these properties, the OWL schema details the allowed XML structure using the annotation property:</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span><tt>annotation:xmlLiteralType</tt><br>
+     In case a property object value is constrained to be an XML literal, this
+     property details the compliant XML structure.</span></li>
+ <ul style="margin-top:0mm" type="circle">
+  <li class="Normal"><span>In the EUROVOC specification this annotation property
+      typically denotes one of the XHTML types defined by the <span class="Hyperlink"><a href="http://www.w3.org/TR/xhtml-modularization/">XHTML™ Modularization
+      1.1 (W3C Recommendation 8 October 2008)</a></span> and its extension <span class="Hyperlink"><a href="http://www.w3.org/TR/rdfa-syntax/">RDFa in
+      XHTML: Syntax and Processing (W3C Recommendation 14 October 2008)</a></span>.</span></li>
+  <li class="Normal"><span>Within the EUROVOC context this property
+      is used to constrain the XML structure of SKOS notes to XHTML types.</span></li>
+  <li class="Normal"><span>Example: <a href="http://lists.w3.org/Archives/Public/public-esw-thes/2010Feb/att-0023/dataproperties/noteLiteral___-1769366121.html">see eu:noteLiteral.</a></span></li>
+ </ul>
+</ul>
+
+<h1><span>2.</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>The
+EUROVOC Thesaurus Ontology Schema</span></h1>
+
+<h2><span>2.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Thesaurus
+Publication</span></h2>
+
+<h3><span>2.1.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Defined
+artefacts</span></h3>
+
+<p class="Normal"><span><tt>eu:Export</tt></span></p>
+
+<p class="Normal"><span><tt>eu:exportDate</tt></span></p>
+
+<p class="Normal"><span><tt>eu:exportedThesaurus</tt></span></p>
+
+<p class="Normal"><span><tt>eu:exportVersion</tt></span></p>
+
+<p class="Normal"><span><tt>eu:intermediateRelease</tt></span></p>
+
+<p class="Normal"><span><tt>eu:Language</tt></span></p>
+
+<p class="Normal"><span><tt>eu:language</tt></span></p>
+
+<p class="Normal"><span><tt>eu:supportedLanguage</tt></span></p>
+
+<p class="Normal"><span><tt>eu:Thesaurus</tt></span></p>
+
+<h3><span>2.1.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Definitions</span></h3>
+
+<p class="Normal"><span>A EUROVOC thesaurus [<tt>eu:Thesaurus</tt>] is a
+SKOS Concept Scheme.&nbsp; Subsequent publications of the thesaurus are
+exported from the back-office maintenance system.</span></p>
+
+<p class="Normal"><span>The publication characteristics of the
+thesaurus are given by the back-office export [<tt>eu:Export</tt>] instance.</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>The property <tt>eu:exportedThesaurus</tt> depicts
+     the thesaurus version defined and provided with the export.</span></li>
+ <li class="Normal"><span>Depending on the value of the Boolean
+     property <tt>eu:intermediateRelease</tt>, the exported thesaurus is:</span></li>
+ <ul style="margin-top:0mm" type="circle">
+  <li class="Normal"><span>[<i>False</i>] Either the consolidated official release
+      version of the thesaurus.&nbsp; The concepts in that thesaurus represent
+      the consolidated version of that concept. (when <tt>eu:intermediateRelease</tt> is not present, the value is defaulted to <i>False</i>)</span></li>
+  <li class="Normal"><span>Or [<i>True</i>] the intermediate (pre-release)
+      version of the thesaurus including the formally accepted results that are
+      not released yet.</span></li>
+ </ul>
+ <li class="Normal"><span>The export is identified by the
+     properties <tt>eu:exportDate</tt> and <tt>eu:exportVersion</tt>.</span></li>
+</ul>
+
+<p class="Normal"><span><br>An <tt>eu:Thesaurus</tt> instance lists the languages
+for which its thesaurus concepts provide a preferred label (via skos:prefLabel
+or xl:literalForm).</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>The supported languages are 
+     provided by the property <tt>eu:supportedLanguage</tt>.&nbsp; The value of this
+     property is an <tt>eu:Language</tt> instance.</span></li>
+ <li class="Normal"><span>A skos:prefLabel holds the language
+     independent name of the Thesaurus: 'EUROVOC'</span></li>
+</ul>
+
+<p class="Normal"><span><br>The <tt>eu:Language</tt> class is a convenience
+class.&nbsp; Each instance represents a language.&nbsp; By convention, the URI
+of an <tt>eu:Language</tt> instance is the registered public subject indicator (see <a href="http://psi.oasis-open.org/iso/639/">http://psi.oasis-open.org/iso/639/#</a>).</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>Each <tt>eu:Language</tt> instance has its
+     language name represented as an RDF-Schema rdfs:label in all of the
+     available languages.</span></li>
+ <li class="Normal"><span>The property <tt>eu:language</tt> provides the ISO
+     2 character code of the language (conforming the xsd:language value
+     space).</span></li>
+</ul>
+
+<h2><span>2.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Thesaurus
+Organisation</span></h2>
+
+<p class="Normal"><span>The overall structure decomposes the
+EUROVOC thesaurus into a set of Domains and a set of Micro-Thesauri.&nbsp; The Domains
+form a mathematical partition of the micro-thesauri.&nbsp; A micro-thesaurus is
+a concept scheme.  All concepts of a micro-thesaurus are concepts of the complete
+EUROVOC thesaurus.</span></p>
+
+<p class="Normal"><span>From these definitions, a domain is neither
+a skos:Collection nor a skos:ConceptScheme.</span></p>
+
+<h3><span>2.2.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Defined
+Artefacts</span></h3>
+
+<p class="Normal"><span><tt>eu:Domain</tt></span></p>
+
+<p class="Normal"><span><tt>eu:domain</tt></span></p>
+
+<p class="Normal"><span><tt>eu:hasPolyHierarchy</tt></span></p>
+
+<p class="Normal"><span><tt>eu:inDomain</tt></span></p>
+
+<p class="Normal"><span><tt>eu:microThesaurus</tt></span></p>
+
+<p class="Normal"><span><tt>eu:MicroThesaurus</tt></span></p>
+
+<h3><span>2.2.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Definitions</span></h3>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>EUROVOC defines several domains of
+     interest.&nbsp; The class <tt>eu:Domain</tt> is the set of these domains.</span></li>
+ <li class="Normal"><span>The property value of <tt>eu:microThesaurus</tt>
+     identifies an <tt>eu:Microthesaurus</tt> belonging to the<tt> eu:Domain</tt> of the property
+     subject.&nbsp; Any micro-thesaurus belongs to exactly 1 domain.&nbsp;
+     eu:domain is the inverse of property <tt>eu:microThesaurus</tt>.</span></li>
+ <li class="Normal"><span>An <tt>eu:MicroThesaurus</tt> is modelled as a
+     SKOS concept scheme.&nbsp; SKOS has no artefact to model a
+     micro-thesaurus, hence <tt>eu:MicroThesaurus</tt> is an <tt>rdfs:subClassOf</tt>
+     a <tt>skos:ConceptScheme</tt>.&nbsp; Every EUROVOC concept typically belongs to at
+     least 2 <tt>skos:ConceptSchemes</tt>: the EUROVOC <tt>eu:Thesaurus</tt> instance and 1
+     <tt>eu:MicroThesaurus</tt> instance.</span></li>
+ <li class="Normal"><span>SKOS has no construct to define a
+     collection of concept schemes.&nbsp; Hence <tt>eu:Domain</tt> is modelled as a
+     EUROVOC specific ontology class.</span></li>
+ <li class="Normal"><span>The concepts of a EUROVOC micro-thesaurus
+     are considered to be in the domain that micro-thesaurus belongs
+     to.&nbsp; The <tt>eu:inDomain</tt> property represents this containement
+     relationship.&nbsp; It is similar but (in RDF-Schema sense) unrelated to
+     the <tt>skos:inScheme</tt> property.</span></li>
+ <li class="Normal"><span>The name of an <tt>eu:Domain</tt> is a
+     <tt>skos:prefLabel</tt>.&nbsp; There must be one label per <tt>eu:supportedLanguage</tt>.</span></li>
+ <li class="Normal"><span>The domain identifier is represented by
+     the property <tt>dc:identifier</tt>:&nbsp; The value is duplicated in the Domain
+     name.&nbsp; The format of the domain identifier is 2 digits, including
+     leading zeros.</span></li>
+ <li class="Normal"><span>The name of an <tt>eu:MicroThesaurus</tt> is a
+     <tt>skos:prefLabel</tt>.&nbsp; There must be one label per language.</span></li>
+ <li class="Normal"><span>The micro-thesaurus identifier is
+     represented by the property <tt>dc:identifier</tt> and is part of the
+     micro-thesaurus name.&nbsp; The format of the micro-thesaurus identifier
+     is 4 digits, including leading zeros.&nbsp; The 2 leading digits of the
+     micro-thesaurus identifier represent the domain the micro-thesaurus
+     belongs to.</span></li>
+ <li class="Normal"><span>The value <i>true</i> for property <tt>eu:hasPolyHierarchy</tt> indicates 
+     its subject (a micro-thesaurus or domain) will have poly-hierarchy.</span></li>
+</ul>
+
+<h2><span>2.3</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Thesaurus
+Concepts</span></h2>
+
+<h3><span>2.3.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Defined
+Artefacts</span></h3>
+
+<p class="Normal"><span><tt>eu:Country</tt></span></p>
+
+<p class="Normal"><span><tt>eu:isoCountryCode</tt></span></p>
+
+<p class="Normal"><span><tt>eu:ThesaurusConcept</tt></span></p>
+
+<h3><span>2.3.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Definitions</span></h3>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>The class <tt>eu:ThesaurusConcept</tt> is the set
+     of all EUROVOC concepts.&nbsp; It is an <tt>rdfs:subClassOf</tt> a <tt>skos:Concept</tt>.</span></li>
+ <li class="Normal"><span>The class <tt>eu:Country</tt> is the sub-set of
+     eu:ThesaurusConcept instances representing a country.&nbsp; A country has
+     at most one 2-char ISO country code represented by the property
+     <tt>eu:isoCountryCode</tt>.&nbsp; Occasionally the code may not be known yet.</span></li>
+</ul>
+
+<h2><span>2.4</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Thesaurus Notes
+and References</span></h2>
+
+<p class="Normal"><span>EUROVOC notes are SKOS notes with a
+particular usage convention to facilitate on-line publishing.</span></p>
+
+<h3><span>2.4.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Defined
+Artefacts</span></h3>
+
+<!--p class="Normal"><span>eu:eurLexReference</span></p removed on request of OPOCE as it is only used in back office -->
+
+<p class="Normal"><span><tt>eu:language</tt></span></p>
+
+<p class="Normal"><span><tt>eu:noteLiteral</tt></span></p>
+
+<p class="Normal"><span><tt>eu:reference</tt></span></p>
+
+<p class="Normal"><span><tt>eu:relevantURL</tt></span></p>
+
+<p class="Normal"><span><tt>dc:source</tt></span></p>
+
+<h3><span>2.4.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Definitions</span></h3>
+
+<p class="Normal"><span>Within EUROVOC the content model of a SKOS
+note is strictly modelled as an RDF resource (a blank node or a non blank node are
+allowed) holding 2 properties:</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>The <tt>eu:noteLiteral</tt> property 
+     value is an XML literal which is structured as an <tt>xhtml:xhtml.body.type</tt>
+     content type.&nbsp; The required content type is specified by the
+     <tt>annotation:xmlLiteralType</tt> EUROVOC schema annotation.&nbsp; This
+     ensures providing structured publishing ready content (XML literal)
+     according a format that can be validated.</span></li>
+ <li class="Normal"><span>The <tt>eu:language</tt> property provides a work
+     around because xml:lang and <tt>rdf:parseType="Literal"</tt> can not be
+     specified on the same property.&nbsp; The value space of the property is
+     according xsd:language (in practice limited to the 2-character ISO language codes only).</span></li>
+ <!--li class="Normal"><span>The property eu:eurLexReference provides
+     an URI value.  It is a direct hyperlink from a EUROVOC concept, label
+     or note to an Official Journal documents in the EUR-Lex database (See <a
+     href="http://eur-lex.europa.eu/">http://eur-lex.europa.eu/</a>). 
+     Typically such links are provided either as a property of the EUROVOC
+     concept or term, or embedded in a SKOS scope notes or a SKOS
+     definition.  Embedding a EUR-Lex reference property in SKOS notes
+     uses XHTML + RDFa compliant mark-up (using the 'rel' attribute - see usage
+     note below).</span></li-->
+ </ul>
+
+ <p class="Normal"><span><br>The other properties are:</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>The <tt>eu:reference</tt> property is a sub-property of <tt>dcterms:references</tt>.  It is not directly
+     used on EUROVOC concepts.&nbsp; Instead it is used within a note literal
+     to reference a EUROVOC concept.<br>
+     The attribute typically may be used in a 'definition' or a 'scope note'
+     about a concept or a label.<br>
+     To implement such a reference the property is embedded in notes using
+     XHTML + RDFa compliant mark-up (using the 'rel' attribute - see usage note
+     below).</span></li>
+ <li class="Normal"><span>The property value of <tt>eu:relevantURL</tt>
+     holds a website URL that is relevant for the subject (a EUROVOC concept
+     or term).</span></li>
+ <li class="Normal"><span>The property <tt>dc:source</tt> is a Dublin Core
+     metadata property denoting the source publication from which the described
+     resource is derived.<br>
+     Definition and explanation:<br>
+     - The described resource is a EUROVOC concept or Label.<br>
+     - The description is done by means of a SKOS definition.<br>
+     The Dublin Core property <tt>dc:source</tt> then typically references the resource
+     providing ground for the creation of the described resource.<br>
+     Usage:&nbsp; Like the EUROVOC reference property, the <tt>dc:source</tt> property
+     need not be applied on a concept or a label.&nbsp; Instead, it may be
+     embedded in notes using RDFa compliant mark-up (e.g. the 'rel' attribute -
+     see usage note below).</span></li>
+</ul>
+
+<h3><span>2.4.3</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Usage
+Note for Encoding <tt>eu:noteLiteral</tt> with XHTML+RDFa Mark-Up</span></h3>
+
+<p class="Normal"><span><tt>&lt;skos:definition
+rdf:parseType="Resource"&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&lt;eu:noteLiteral rdf:parseType="Literal"
+xmlns="http://www.w3.org/1999/xhtml"&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Usage of eu:reference as a link in notes (Scope note, History note,
+definition, ...)&lt;/h3&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Notes can have XMLLiteral values with mark-up from the xhtml<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+namespace (http://www.w3.org/1999/xhtml).</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The XHTML vocabulary must be compliant with XHTML version='XHTML+RDFa
+1.0'.</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The content will NOT include the xhtml:body element, only its content (plain
+text, div, ...)</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;In a note, an href reference may refer to a EUROVOC Concept or <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a EUROVOC term (i.e. a SKOS-XL Label). Example:</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a rel="eu:reference"
+href="http://eurovoc/europe.eu....."&gt;xyz&lt;/a&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or &lt;a rel="eu:reference"
+href="http://eurovoc.europa.eu/C2448"&gt;xyz&lt;/a&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&lt;/eu:noteLiteral&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&nbsp;&nbsp;&nbsp;&lt;eu:language
+rdf:datatype="http://www.w3.org/2001/XMLSchema#language"&gt;en&lt;/eu:language&gt;</tt></span></p>
+
+<p class="Normal"><span><tt>&lt;/skos:definition&gt;</tt></span></p>
+
+<h2><span>2.5</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Labels
+and Label Relations</span></h2>
+
+<p class="Normal"><span>EUROVOC labels are either preferred terms
+or non preferred terms.&nbsp; The non preferred terms are either simple (i.e.
+consisting of one component) or compound (i.e. consisting of 2 or more
+components).&nbsp; Equivalence relationships are called advanced (or complex) 
+relationships because 2 or more labels are involved.</span></p>
+
+<h3><span>2.5.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Defined
+Artefacts</span></h3>
+
+<p class="Normal"><span><tt>eu:acronym</tt></span></p>
+
+<p class="Normal"><span><tt>eu:CompoundEquivalence</tt></span></p>
+
+<p class="Normal"><span><tt>eu:CompoundNonPreferredTerm</tt></span></p>
+
+<p class="Normal"><span><tt>eu:compoundNonPreferredTerm</tt></span></p>
+
+<p class="Normal"><span><tt>eu:EquivalenceRelationship</tt></span></p>
+
+<p class="Normal"><span><tt>eu:fullName</tt></span></p>
+
+<p class="Normal"><span><tt>eu:permutedLiteralForm</tt></span></p>
+
+<p class="Normal"><span><tt>eu:PreferredTerm</tt></span></p>
+
+<p class="Normal"><span><tt>eu:preferredTermComponent</tt></span></p>
+
+<p class="Normal"><span><tt>eu:qualifier</tt></span></p>
+
+<p class="Normal"><span><tt>eu:shortName</tt></span></p>
+
+<p class="Normal"><span><tt>eu:SimpleNonPreferredTerm</tt></span></p>
+
+<p class="Normal"><span><tt>eu:ThesaurusTerm</tt></span></p>
+
+<p class="Normal"><span><tt>eu:translationOf</tt></span></p>
+
+<p class="Normal"><span><tt>eu:UF</tt></span></p>
+
+<p class="Normal"><span><tt>eu:USE</tt></span></p>
+
+<p class="Normal"><span><tt>eu:ufLabel</tt></span></p>
+
+<p class="Normal"><span><tt>eu:ufPlusLabel</tt></span></p>
+
+<p class="Normal"><span><tt>eu:useLabel</tt></span></p>
+
+<p class="Normal"><span><tt>eu:usePlusLabel</tt></span></p>
+
+<h3><span>2.5.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Label
+Definitions</span></h3>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>The class <tt>eu:ThesaurusTerm</tt> is the set of
+     EUROVOC terms or labels.&nbsp; It is a subset of the <tt>xl:Label</tt> class.&nbsp;
+     All EUROVOC label relations are expressed between thesaurus terms.&nbsp;
+     Terms may be preferred terms or non preferred terms.&nbsp; Non preferred
+     terms may be simple or compound.</span></li>
+ <li class="Normal"><span>The class <tt>eu:PreferredTerm</tt> is the set of
+     EUROVOC preferred terms.&nbsp; Such a term typically is the object of an
+     <tt>xl:prefLabel</tt> property of an <tt>eu:ThesaurusConcept</tt>.</span></li>
+ <li class="Normal"><span>The class <tt>eu:SimpleNonPreferredTerm</tt> is the
+     set of EUROVOC simple non preferred terms.&nbsp; Such a term typically is
+     the object of an <tt>xl:altLabel</tt> property of an <tt>eu:ThesaurusConcept</tt>. &nbsp;A
+     non preferred term is the equivalent of (one or more) preferred
+     term/s.&nbsp; The relationship between the non preferred term and a
+     preferred term must be established by an <tt>eu:EquivalenceRelationship</tt>.&nbsp;
+     In thesaurus standards the (simple) non preferred term tags its
+     corresponding components using <b>USE</b> whereas the equivalent preferred terms
+     of a (simple) non-preferred term tags that non-preferred term using <b>UF</b>.</span></li>
+ <li class="Normal"><span>The class <tt>eu:CompoundNonPreferredTerm</tt> is
+     the set of EUROVOC compound non preferred terms.&nbsp; Such a term
+     typically is the object of <tt>xl:altLabel</tt> properties of 2 or more
+     <tt>eu:ThesaurusConcept</tt>.&nbsp; A compound non preferred term is composed of
+     two or more components that each can be represented by a preferred
+     term.&nbsp; The relationship between the compound term and its components
+     must be established by an <tt>eu:CompoundEquivalence</tt> relationship.&nbsp; In
+     thesaurus standards the compound non preferred term tags its corresponding
+     components using <b>USE+</b> whereas the preferred terms that are components of a
+     compound non-preferred term tags that non-preferred term using <b>UF+</b>.</span></li>
+ <li class="Normal"><span>The property <tt>eu:qualifier</tt> is a label
+     qualifier discriminating an <tt>eu:ThesaurusTerm</tt> from other homographs in
+     a given language.&nbsp; The language of the qualifier is implied by
+     the language of the <tt>xl:literalForm</tt> on the <tt>xl:Label</tt> in the <tt>eu:qualifier</tt>
+     property (RDFs) domain.</span></li>
+ <ul style="margin-top:0mm" type="circle">
+  <li class="Normal"><span>CONVENTION: For EUROVOC, the occasional
+      qualifier is part of the literal form of the label.&nbsp; It is appended
+      using the following format rules: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      label = base-label + space + '(' + qualifier + ')'.<br>This convention
+      allows deriving the base label value when needed.<br>
+      Example: qualified term (qualifier value)</span></li>
+ </ul>
+ <li class="Normal"><span>Any <tt>eu:ThesaurusTerm</tt> may be looked-up
+     using specific permutations of the words in the term's
+     <tt>xl:literalForm</tt>.&nbsp; The used permutations of a subject term are provided
+     using the <tt>eu:permutedLiteralForm</tt> property.&nbsp; The following rules apply
+     to create <tt>skos:hiddenLabel</tt> for an <tt>eu:ThesaurusConcept</tt>:</span></li>
+ <ul style="margin-top:0mm" type="circle">
+  <li class="Normal"><span>A chain <br>&nbsp;&nbsp;&nbsp;<tt>xl:prefLabel([Concept][Term]) o
+      eu:permutedLiteralForm([Term][literal]) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
+      skos:hiddenLabel([Concept][literal])</tt></span></li>
+  <li class="Normal"><span>A chain <br>&nbsp;&nbsp;&nbsp;<tt>xl:altLabel([Concept][Term]) o
+      eu:permutedLiteralForm([Term][literal]) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
+      skos:hiddenLabel([Concept][literal])</tt></span></li>
+ </ul>
+</ul>
+
+<h3><span>2.5.3</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Simple
+Label Relation Definitions</span></h3>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>The <tt>eu:acronym</tt> property is a
+     specialisation of the <tt>xl:labelRelation</tt> providing the acronym of the
+     subject label.</span></li>
+ <li class="Normal"><span>The <tt>eu:fullName</tt> property is a
+     specialisation of the <tt>xl:labelRelation</tt> providing the full name of the subject
+     label.</span></li>
+ <li class="Normal"><span>The <tt>eu:shortName</tt> property is a
+     specialisation of the <tt>xl:labelRelation</tt> providing the short name of
+     the subject label.</span></li>
+ <li class="Normal"><span>The <tt>eu:translationOf</tt> property is a
+     specialisation of the <tt>xl:labelRelation</tt> providing the translation of
+     the subject label.</span></li>
+</ul>
+
+<h3><span>2.5.4</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Advanced
+Label Relation Definitions</span></h3>
+
+<p class="Normal"><span>Dedicated EUROVOC classes are used to
+distinguish USE/UF and USE+/UF+ relationships.</span></p>
+
+<ul style="margin-top:0mm" type="square">
+ <li class="Normal"><span>The class <tt>eu:CompoundEquivalence</tt> is the
+     set of associations establishing the relationship between one compound non
+     preferred term (property <tt>eu:compoundNonPreferredTerm</tt>) and its component
+     terms (properties <tt>eu:preferredTermComponent</tt>).&nbsp; The component terms
+     must be preferred terms (<tt>eu:PreferredTerm</tt>).&nbsp; When a preferred term
+     (of the relationship) is the SKOS-XL preferred label of an
+     <tt>eu:ThesaurusConcept</tt>, then the compound non preferred term
+     (<tt>eu:CompoundNonPreferredTerm</tt>) must be a SKOS-XL alternate label of that
+     concept.<br>In thesaurus standards this relationship is tagged using
+     USE+/UF+.  The EUROVOC schema also represents this relationship using the 
+     inferred properties: <tt>eu:usePlusLabel</tt> and <tt>eu:ufPlusLabel</tt>.  These
+     properties are sub-properties of <tt>xl:labelRelation</tt>.</span></li>
+ <li class="Normal"><span>The class <tt>eu:EquivalenceRelationship</tt> is
+     the set of associations establishing the relationship between a preferred
+     term (property <tt>eu:USE</tt> with value an <tt>eu:PreferredTerm</tt>) and a simple non
+     preferred term (property <tt>eu:UF</tt> with value an
+     <tt>eu:SimpleNonPreferredTerm</tt>).&nbsp; When the preferred term in this relationship
+     is the <tt>xl:prefLabel</tt> of an <tt>eu:ThesaurusConcept</tt>, then the simple none
+     preferred term must be a <tt>xl:altLabel</tt> of the concept denoted by that
+     preferred term. &nbsp;<br>In thesaurus standards this relationship is tagged
+     using USE/UF.  The EUROVOC schema also represents this relationship using the 
+     inferred properties: <tt>eu:useLabel</tt> and <tt>eu:ufLabel</tt>.  These
+     properties are sub-properties of <tt>xl:labelRelation</tt>.</span></li>
+</ul>
+
+<h2><span>2.6</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Versioning
+Properties</span></h2>
+
+<h3><span>2.6.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Defined
+Artefacts</span></h3>
+
+<p class="Normal"><span><tt>eu:termReleasedWithVersion</tt></span></p>
+
+<p class="Normal"><span><tt>eu:useInstead</tt></span></p>
+
+<h3><span>2.6.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Definitions</span></h3>
+
+<ul style="margin-top:0mm" type="square">
+ <li class="Normal"><span>The value of the property
+     <tt>eu:termReleasedWithVersion</tt> provides the number of the EUROVOC release that
+     introduced the property subject (a EUROVOC term).&nbsp; The fixed string
+     'n/a' indicates the historic release number is not available.</span></li>
+ <li class="Normal"><span>The property <tt>eu:useInstead</tt> applies to
+     EUROVOC concepts that are obsolete as from a date mentioned in the scope
+     note of the now obsolete concept.&nbsp; For the purpose of indexing or
+     classification that applies beyond the mentioned date, use the concept
+     denoted by <tt>eu:useInstead</tt> (instead of using the obsolete concept).</span></li>
+</ul>
+
+<h2><span>2.7</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Maintenance
+Properties for Resources in an Intermediate Release</span></h2>
+
+<h3><span>2.7.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Defined
+Artefacts</span></h3>
+
+<p class="Normal"><span><tt>eu:approvedForRelease</tt></span></p>
+
+<p class="Normal"><span><tt>eu:status</tt></span></p>
+
+<p class="Normal"><span><tt>eu:toBeTranslated</tt></span></p>
+
+<h3><span>2.7.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Definitions</span></h3>
+
+<ul style="margin-top:0mm" type="square">
+ <li class="Normal"><span>The value of <tt>eu:approvedForRelease</tt> provides 
+     the expected EUROVOC release number for the official
+     release of a new or modified EUROVOC concept (or domain or
+     micro-thesaurus).&nbsp; The property will only be present in intermediate
+     maintenance releases of EUROVOC.</span></li>
+ <li class="Normal"><span>The <tt>eu:status</tt> property value is the
+     position or state of the EUROVOC concept or label (term) with respect to
+     the EUROVOC back-office maintenance workflow.<br>
+     Three states are relevant for a EUROVOC publication:<br>
+     - '<i>valid</i>': for released terms and concepts<br>
+     - '<i>to be translated</i>': A term requiring further translation.&nbsp; Look at
+     <tt>eu:toBeTranslated</tt> to find the outstanding translations<br>
+     - '<i>in maintenance</i>': a concept or term in maintenance. Look at
+     <tt>eu:approvedForRelease</tt> to know for which version the approval holds.<br>
+     If the property is not present, '<i>valid</i>' must be assumed.</span></li>
+ <li class="Normal"><span>The <tt>eu:toBeTranslated</tt> &nbsp;property
+     typically is set only on EUROVOC concepts or terms that are announced in a
+     maintenance release.&nbsp; The range value must have<br>
+     - a language (the language for which translation is required)<br>
+     - for a term this must be the language of the term<br>
+     - for a micro-thesaurus or domain this may be a comma separated list of
+     languages</span></li>
+</ul>
+
+<h2><span>2.8</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>General
+Auditing Properties</span></h2>
+
+<h3><span>2.8.1</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Defined
+Artefacts</span></h3>
+
+<p class="Normal"><span><tt>dc:identifier</tt></span></p>
+
+<p class="Normal"><span><tt>dcterms:created</tt></span></p>
+
+<p class="Normal"><span><tt>dcterms:modified</tt></span></p>
+
+<h3><span>2.8.2</span><span style="font-size:7.0pt;
+font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span><span>Definitions</span></h3>
+
+<p class="Normal"><span>The Dublin Core defined metadata properties
+may be available on any instance to define</span></p>
+
+<ul style="margin-top:0mm" type="disc">
+ <li class="Normal"><span>The creation date of the resource</span></li>
+ <li class="Normal"><span>The modification date of the resource</span></li>
+ <li class="Normal"><span>A persistent identifier of the object as
+     generated in the EUROVOC context.&nbsp; When specified, the intended use of the
+     identifier is explained in the schema.</span></li>
+</ul>
+
+<p class="Normal"><span>&nbsp;</span></p>
+
+</div>
+
+<hr>
+
+
+
+
+</body></html>
