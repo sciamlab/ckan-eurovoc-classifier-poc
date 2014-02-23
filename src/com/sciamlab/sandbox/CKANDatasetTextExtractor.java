@@ -23,7 +23,6 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
-import java.util.HashMap;
 
 import com.sciamlab.util.HTTPClient;
 
@@ -48,15 +47,40 @@ import net.sf.json.JSONSerializer;
 
 public class CKANDatasetTextExtractor {
 
+	
 	// www.dati.gov.it/catalog
 	final static String CKAN_SRV_URL = "http://www.opendatahub.it"; 
 
 	final static String DATASET_LIST_API_PATH = "/api/rest/package";
 	final static String DATASET_API_PATH = "/api/rest/package/";	
-
 	final static String DESTINATION_FOLDER = "/home/alessio/apps/jex/documents/";
 
+	String[] params = {};
+	public CKANDatasetTextExtractor(String[] args){
+		params=args;
+	}
+	
 	public static void main(String[] args) {
+
+		Date start = new Date();
+		CKANDatasetTextExtractor te = new CKANDatasetTextExtractor(args);
+		te.run();
+		Date end = new Date();
+
+		System.out.println("\n\n-----------------------------------------------------");
+		System.out.println("FINAL SUMMARY");
+		System.out.println("Start date:\t"+start);
+		System.out.println("End date:\t"+end);
+		long total = end.getTime()-start.getTime();
+		long hrs = total/1000/60/60;
+		long min = (total/1000/60)-(hrs*60);
+		long sec = (total/1000)-(hrs*60*60)-(min*60);
+		System.out.println("Total processing time: "+(hrs<10?"0":"")+hrs+":"+(min<10?"0":"")+min+":"+(sec<10?"0":"")+sec);
+		System.exit(0);
+	}
+	
+
+	public void run() {
 
 		HTTPClient httpClient = new HTTPClient();
 		String datasetJson="[]";
@@ -145,6 +169,6 @@ public class CKANDatasetTextExtractor {
 		System.out.println();
 		System.out.println(count_datasets+" total datasets available.");
 
-	} // end main method
+	} // end run method
 
 }
